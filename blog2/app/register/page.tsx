@@ -4,6 +4,7 @@ import Input from '../../components/input/Input'
 import React, { FormEvent, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import getCurrentUser from '../actions/getCurrentUser';
 interface InitialStateProps{
     name:string,
     email:string,
@@ -15,9 +16,12 @@ const initialState:InitialStateProps = {
     email: '',
     password: ''
 }
-export default function page() {
+export default async function page() {
     const [state, setState] = useState(initialState)
     const router = useRouter()
+    // const currentUser = await getCurrentUser()
+    
+    
     const onSubmit = (event:FormEvent)=>{
         event.preventDefault()
         axios.post('/api/register',state)

@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/navbar/navbar'
 import getCurrentUser from './actions/getCurrentUser'
-
+import { Toaster } from 'react-hot-toast';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -21,8 +21,8 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Navbar currentUser={currentUser}/> 
+        <Toaster position="top-center" />
         {children}
-
         </body>
     </html>
   )

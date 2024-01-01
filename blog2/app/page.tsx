@@ -6,7 +6,7 @@ interface Props {
   name: string,
   imageSrc: string,
   description: string
-  id:string
+  id: string
 }
 export default async function Home() {
 
@@ -14,18 +14,19 @@ export default async function Home() {
   const blogs = await getBlogs()
 
 
-  console.log("blogs", blogs)
+  console.log("currentUser", currentUser)
   return (
-    <main className="flex min-h-screen flex-col items-left justify-between ">
-      <div className="flex m-10 gap-5">
+    <main className="w-full ">
+      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 lg:mx-8 gap-[30px] max-w-sm mx-auto md:max-w-none  md:mx-0 m-10 ">
         {blogs.map((item: Props) => {
-           return <SingleBlog
-              data={item}
-              key={item.id}
-              currentUser={currentUser}
-            />
+          return <SingleBlog
+            data={item}
+            key={item.id}
+            currentUser={currentUser}
+          />
         })}
       </div>
+
     </main>
   )
 }

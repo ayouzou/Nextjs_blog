@@ -7,7 +7,7 @@ interface IParams {
 }
 export default async function page({ params }: { params: IParams }) {
     const blog = await getBlogById(params)
-    const cuurentUser = await getCurrentUser();
+    const curentUser = await getCurrentUser();
 
     const date = blog?.createdAt
     const date2 = new Date(date ?? 2023).toDateString()
@@ -19,6 +19,7 @@ export default async function page({ params }: { params: IParams }) {
                     description={blog?.description}
                     blogId={blog?.id}
                     imageSrc={blog?.imageSrc}
+                    curentUser={curentUser}
                 />
             </div>
         </div>
